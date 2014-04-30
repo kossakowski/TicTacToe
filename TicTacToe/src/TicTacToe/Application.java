@@ -16,6 +16,11 @@ public class Application {
 	 */
 	public static void main(String[] args) {
 		TTTBoard GameBoard = new TTTBoard ();
+		DrawTool GameBoardDrawTool = new DrawTool(GameBoard);
+		GameBoard.setCross(0);
+		GameBoard.setNought(1);
+		GameBoard.setCross(2);
+		GameBoardDrawTool.DrawBoard();
 	}
 
 }

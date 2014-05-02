@@ -1,7 +1,7 @@
 package TicTacToe;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 
 public class AIOpponent extends Player{
 	public ArrayList<Integer> getEmptyFields (TTTBoard board){
@@ -17,9 +17,21 @@ public class AIOpponent extends Player{
 	public void printEmptyFields(ArrayList<Integer> emptyFieldsList){
 		System.out.println(emptyFieldsList.toString());
 	}
-	/*@Override
+	
 	public int getNextMove(TTTBoard board){
 		ArrayList<Integer> emptyFieldsList = new ArrayList<Integer>();
 		emptyFieldsList = this.getEmptyFields(board);
-		for (int i = 0; i<emptyFieldsList)*/
+		Random randomGenerator = new Random();
+		int randomNumber = randomGenerator.nextInt(emptyFieldsList.size());
+		return emptyFieldsList.get(randomNumber);
 	}
+	
+	public void setCharacterToOpposite(String Character){
+		if (Character.equals("X")){
+			this.setCharacter("O");
+		}
+		if (Character.equals("O")){
+			this.setCharacter("X");
+		}
+	}
+}

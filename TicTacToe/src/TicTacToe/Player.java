@@ -1,6 +1,5 @@
 package TicTacToe;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Player {
@@ -12,23 +11,27 @@ public class Player {
 	}
 
 	public void setCharacter(String character) {
-		Character = character;
+		this.Character = character;
 	}
 	
 	public void setToken(int position, TTTBoard board) {
 		if (board.isEmpty(position)){
-			if (this.Character.equals("X")){
+			if (this.getCharacter().equals("X")){
 				board.setCross(position);
 			}
-			if (this.Character.equals("O")){
+			if (this.getCharacter().equals("O")){
 				board.setNought(position);
 			}
 		}
 	}
-	public int getNextMove(){
+	public int getNextMove(TTTBoard board){
 		int nextMovePosition;
-		System.out.println("Please specify where you want to place the " +this.Character+" by typing its position (1-9):");
+		System.out.println("Please specify where you want to place the " +this.Character+" by typing its position (0-8):");
 		nextMovePosition = input.nextInt();
+		while(!(board.isEmpty(nextMovePosition))){
+			System.out.println("This position is occupied. Please specify another:");
+			nextMovePosition = input.nextInt();
+		}
 		/*do {
 		System.out.println("Please specify where you want to place the " +this.Character+" by typing its position (1-9):");
 		nextMovePosition = input.nextInt();
@@ -38,7 +41,7 @@ public class Player {
 			System.out.println("Please specify and integer ranging from 1 to 9:");
 			nextMovePosition = input.nextInt();
 		}*/
-		return nextMovePosition-1;
+		return nextMovePosition;
 		
 	}
 }

@@ -16,11 +16,13 @@ public class Player {
 	}
 	
 	public void setToken(int position, TTTBoard board) {
-		if (this.Character.equals("X")){
-			board.setCross(position);
-		}
-		if (this.Character.equals("O")){
-			board.setNought(position);
+		if (board.isEmpty(position)){
+			if (this.Character.equals("X")){
+				board.setCross(position);
+			}
+			if (this.Character.equals("O")){
+				board.setNought(position);
+			}
 		}
 	}
 	public int getNextMove(){

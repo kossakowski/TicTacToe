@@ -20,6 +20,7 @@ public class Application {
 		Scanner input = new Scanner(System.in);
 		Game TTTGame = new Game();
 		Player GamePlayer = new Player ();
+		AIOpponent Computer = new AIOpponent();
 		TTTBoard GameBoard = new TTTBoard ();
 		DrawTool GameBoardDrawTool = new DrawTool(GameBoard);
 		TTTGame.welcomeScreen("Welcome to the Awsome Tic Tac Toe game!");
@@ -31,6 +32,7 @@ public class Application {
 			System.out.println();
 			GamePlayer.setToken(GamePlayer.getNextMove(), GameBoard);
 			GameBoardDrawTool.DrawBoard();
+			System.out.println();
 		}
 		System.out.println();
 		System.out.println();

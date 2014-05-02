@@ -24,10 +24,16 @@ public class Application {
 		DrawTool GameBoardDrawTool = new DrawTool(GameBoard);
 		TTTGame.welcomeScreen("Welcome to the Awsome Tic Tac Toe game!");
 		GamePlayer.setCharacter(TTTGame.getThePlayerToken(input));
-		TTTGame.printRound();
-		GameBoardDrawTool.DrawBoard();
+		while (!(GameBoard.isSolvedForCrosses() || GameBoard.isSolvedForNought())){
+			TTTGame.printRound();
+			GameBoardDrawTool.DrawBoard();
+			System.out.println();
+			System.out.println();
+			GamePlayer.setToken(GamePlayer.getNextMove(), GameBoard);
+			GameBoardDrawTool.DrawBoard();
+		}
 		System.out.println();
 		System.out.println();
-		GamePlayer.setToken(GamePlayer.getNextMove(), GameBoard);
+		System.out.println("Victory!");
 	}
 }

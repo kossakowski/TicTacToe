@@ -3,7 +3,7 @@ package TicTacToe;
 import java.util.Scanner;
 
 public class Game {
-	int roundNumber = 1;
+	int roundNumber = 0;
 	
 	public String getThePlayerToken(Scanner input){
 		String in;
@@ -22,6 +22,8 @@ public class Game {
 	}
 	
 	public void printRound(){
+		roundNumber++;
+		System.out.println();
 		System.out.println("======== Round " +this.roundNumber+" ========");
 		System.out.println();
 	}
